@@ -1,10 +1,12 @@
+import Image from 'next/image';
+import { ReactElement } from 'react';
+
 import { Card } from '@/components/Card';
 import DefaultLayout from '@/layouts/Default';
-import { ReactElement } from 'react';
+
 import { Container, CoverContainer, HeaderContainer } from './styles';
 
 import coverImage from '../../assets/cover-home.png';
-import Image from 'next/image';
 
 export default function Home() {
 	return (

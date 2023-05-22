@@ -1,16 +1,15 @@
 import Modal from 'react-modal';
-import { Baloo_2 } from 'next/font/google';
-import { Container, Logo, LogoutButton, ManagementContainer, NavContainer, SignoutModalContainer, UserInfosContainer, VDivider } from './styles';
+import { useContext, useState } from 'react';
+
+import { theme } from '@/styles';
 import { NavBar } from '../NavBar';
 import { UserAvatar } from '../UserAvatar';
-import { useContext, useState } from 'react';
-import { AuthContext } from '@/context/AuthContext';
-import { LogOut } from 'lucide-react';
-import { theme } from '@/styles';
-import { NotificationMenu } from '../NotificationMenu';
 import { Button } from '../Action/Button/buttons';
+import { AuthContext } from '@/context/AuthContext';
+import { NotificationMenu } from '../NotificationMenu';
 
-const baloo = Baloo_2({ subsets: ['latin'], weight: ['500', '600', '700'] });
+import { LogOut } from 'lucide-react';
+import { Container, Logo, LogoutButton, ManagementContainer, NavContainer, SignoutModalContainer, UserInfosContainer, VDivider } from './styles';
 
 const customStyles = {
 	content: {
@@ -42,7 +41,7 @@ export function Header() {
 	return (
 		<>
 			<Container>
-				<Logo className={baloo.className}>zenclient</Logo>
+				<Logo>zenclient</Logo>
 
 				<NavContainer>
 					<NavBar />

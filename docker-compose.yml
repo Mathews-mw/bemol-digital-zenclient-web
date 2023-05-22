@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  app-api:
+    stdin_open: true
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: zenclient-web
+    ports:
+      - "3000:3000"
+    restart: always

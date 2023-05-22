@@ -1,23 +1,20 @@
 import { z } from 'zod';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Baloo_2 } from 'next/font/google';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Card } from '@/components/Card';
 import { Divider } from '@/components/Divide';
+import { AuthContext } from '@/context/AuthContext';
 import { InputText } from '@/components/Form/InputText';
 import { Button } from '@/components/Action/Button/buttons';
+import { LoadingScreen } from '@/components/Loarders/LoadingScreen';
 
 import { Container, FooterContainer, Form, Logo, LogoContainer, RegisterButton } from './styles';
-import { AuthContext } from '@/context/AuthContext';
-import { LoadingScreen } from '@/components/Loarders/LoadingScreen';
 
 interface ILoginProps {
 	onChangeTab: () => void;
 }
-
-const baloo = Baloo_2({ subsets: ['latin'], weight: ['500', '600', '700'] });
 
 const loginFormSchema = z.object({
 	login: z.string().min(1, { message: 'Campo obrigatório!' }).email({ message: 'E-mail inválido' }),
@@ -47,12 +44,8 @@ export function Login({ onChangeTab }: ILoginProps) {
 		<Container>
 			<Card>
 				<LogoContainer>
-					<Logo className={baloo.className} colorType='secondaty'>
-						zen
-					</Logo>
-					<Logo className={baloo.className} colorType='prymary'>
-						client
-					</Logo>
+					<Logo colorType='secondaty'>zen</Logo>
+					<Logo colorType='prymary'>client</Logo>
 				</LogoContainer>
 
 				<Divider />

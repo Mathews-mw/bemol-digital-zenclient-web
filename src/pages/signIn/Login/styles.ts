@@ -18,6 +18,7 @@ export const LogoContainer = styled('div', {
 export const Logo = styled('span', {
 	fontWeight: '$bold',
 	fontSize: '$2xl',
+	fontFamily: '$title',
 
 	variants: {
 		colorType: {

@@ -1,38 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Zenclient Aplicação Web 
 
-## Getting Started
+Interface web da aplicação zenclient. Esse projeto faz parte do desafio bemol-digital.
 
-First, run the development server:
+> **Importante:** A aplicação web usa do serviço da API **zenclient-api** para que execute todas suas funcionalidades corretamente. Veja antes como executar a api: [repositório zenclient-api](https://github.com/Mathews-mw/bemol-digital-zenclient-api)
+
+## Setup e execução através do Docker container
+
+Para rodar o projeto em um container docker, será necessário antes montar a imagem do projeto.
+
+1. Dentro da pasta raiz do projeto onde se encontra o arquivo *Dockerfile* e *docker-compose.yml*, rode o seguinte comando:
+
+```bash
+docker  compose  build
+```
+
+2. Com o container criado, basta iniciá-lo:
+
+```bash
+docker  compose  up  -d
+```
+
+3. Basta acessar agora o endereço [localhost:3000](http://localhost:3000/) para acessar a aplicação.
+
+##  Sobre a aplicação
+
+Essa aplicação é uma interface web que faz integração com a *zenclient-api*. Aqui é possível acessar a aplicação através de uma autenticação, cadastrar-se, ver os dados do usuário e editá-los. A aplicação foi desenvolvida em NextJS.
+
+## Caractéristicas da aplicação
+
+As principais caracterísitcas são:
+
+- **NextJS** como Framework de desenvolvimento ;
+- **Stitches** para estilização;
+
+## Executando localmente
+
+Em caso que você queira rodar a aplicação localmente como ambiente de desenvolvimento, basta seguir os passos:
+
+1. Instalar as dependências do projeto:
+
+```bash
+npm install
+```
+
+2. Iniciár a plicação:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. A aplicação estará rodando em [localhost:3000](http://localhost:3000/)

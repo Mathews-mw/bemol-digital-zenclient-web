@@ -1,14 +1,15 @@
-import { ReactElement, useContext, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-
-import DefaultLayout from '@/layouts/Default';
-import { Container } from './styles';
-import { Display } from './Display';
-import { LoadingScreen } from '@/components/Loarders/LoadingScreen';
-import { AuthContext } from '@/context/AuthContext';
 import { useQuery } from '@tanstack/react-query';
-import api from '@/services/api';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ReactElement, useContext, useState } from 'react';
+
 import { Edit } from './Edit';
+import api from '@/services/api';
+import { Display } from './Display';
+import DefaultLayout from '@/layouts/Default';
+import { AuthContext } from '@/context/AuthContext';
+import { LoadingScreen } from '@/components/Loarders/LoadingScreen';
+
+import { Container } from './styles';
 
 type CardType = 'displayCard' | 'editCard';
 

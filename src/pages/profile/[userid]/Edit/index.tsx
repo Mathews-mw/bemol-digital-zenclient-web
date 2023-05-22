@@ -1,21 +1,22 @@
-import { Title } from '@/components/Title';
+import { z } from 'zod';
 import axios from 'axios';
 import debounce from 'lodash/debounce';
-import { Container, Form, GroupButtons, Section, SectionsContainer, TitleSection } from './styles';
-import { Card } from '@/components/Card';
-import { Divider } from '@/components/Divide';
-import { Button } from '@/components/Action/Button/buttons';
-import { InputText } from '@/components/Form/InputText';
-import { z } from 'zod';
 import { useForm } from 'react-hook-form';
+import { useQuery } from '@tanstack/react-query';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ChangeEvent, useCallback, useEffect, useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { ShowSuccessRequest } from '@/utils/ShowSuccessRequest';
-import { ShowErrorRequest } from '@/utils/ShowErrorRequest';
+
 import api from '@/services/api';
-import { useRouter } from 'next/router';
+import { Card } from '@/components/Card';
+import { Title } from '@/components/Title';
+import { Divider } from '@/components/Divide';
 import { queryClient } from '@/lib/react-query';
+import { InputText } from '@/components/Form/InputText';
+import { Button } from '@/components/Action/Button/buttons';
+import { ShowErrorRequest } from '@/utils/ShowErrorRequest';
+import { ShowSuccessRequest } from '@/utils/ShowSuccessRequest';
+
+import { Container, Form, GroupButtons, Section, SectionsContainer, TitleSection } from './styles';
 
 interface IEditProps {
 	profile: USerProfile | undefined;
@@ -50,8 +51,6 @@ const editFormSchema = z.object({
 type EditFormInputData = z.infer<typeof editFormSchema>;
 
 export function Edit({ onChangeTab, profile }: IEditProps) {
-	const router = useRouter();
-
 	const [actionLoading, setActionLoading] = useState(false);
 	const [delayQuerySearch, setDelayQuerySearch] = useState('');
 
@@ -182,10 +181,10 @@ export function Edit({ onChangeTab, profile }: IEditProps) {
 				<Divider />
 
 				<GroupButtons>
-					<Button type='button' colorScheme='gray' onClick={onChangeTab}>
+					<Button type='button' colorScheme='gray' onClick={onChangeTab} disabled={actionLoading || isSubmitting}>
 						Cancelar
 					</Button>
-					<Button type='submit' form='edit-user-form'>
+					<Button type='submit' form='edit-user-form' disabled={actionLoading || isSubmitting}>
 						Salvar
 					</Button>
 				</GroupButtons>

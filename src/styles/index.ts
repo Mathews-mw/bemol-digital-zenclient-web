@@ -65,7 +65,7 @@ export const { config, css, styled, globalCss, keyframes, getCssText, theme, cre
 
 		fonts: {
 			default: 'Roboto, sans-serif',
-			title: 'Baloo 2, sans-serif',
+			title: `'Baloo 2', cursive`,
 		},
 
 		space: {
